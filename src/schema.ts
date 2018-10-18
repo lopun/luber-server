@@ -1,3 +1,4 @@
+// api 폴더에 있는 모든 정의들 handling하는 파일
 import { makeExecutableSchema } from "graphql-tools";
 import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 import path from "path";
