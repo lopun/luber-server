@@ -36,8 +36,8 @@ yarn dev
 
 ### Public Resolvers :
 
-- [ ] Sign In / Sign Up with Facebook
-- [ ] Sign In with Email
+- [x] Sign In / Sign Up with Facebook
+- [x] Sign In with Email
 - [ ] Start Phone Number Verification
 - [ ] Complete Phone Number Verification
 - [ ] Sign Up with Email
@@ -46,6 +46,8 @@ yarn dev
 
 ### Private Resolvers :
 
+- [ ] Generate JWT
+- [ ] Verify JWT
 - [ ] Verify Email
 - [ ] Get my Profile
 - [ ] Update my Profile
