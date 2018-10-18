@@ -39,7 +39,7 @@ yarn dev
 - [x] Sign In / Sign Up with Facebook
 - [x] Sign In with Email
 - [x] Start Phone Number Verification
-- [ ] Complete Phone Number Verification
+- [x] Complete Phone Number Verification
 - [ ] Sign Up with Email
 
 ---
