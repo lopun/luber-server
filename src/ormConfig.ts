@@ -1,10 +1,10 @@
 import { ConnectionOptions } from "typeorm";
 
-console.log(process.env.DB_PASSWORD);
 const defaultConnectOptions: ConnectionOptions = {
   type: "postgres",
   database: "luber",
   synchronize: true,
+  // 모든 로깅을 보게된다.
   logging: true,
   entities: ["entities/*.*"],
   host: process.env.DB_ENDPOINT || "localhost",

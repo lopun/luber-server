@@ -21,6 +21,8 @@ const appOptions: Options = {
 const handleAppStart = () => console.log(`Listening on port ${PORT}`);
 
 // db 연결
-createConnection(defaultConnectOptions).then(() => {
-  app.start(appOptions, handleAppStart);
-});
+createConnection(defaultConnectOptions)
+  .then(() => {
+    app.start(appOptions, handleAppStart);
+  })
+  .catch(err => console.log(err));
