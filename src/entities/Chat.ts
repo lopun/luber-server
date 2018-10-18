@@ -3,7 +3,6 @@ import {
   BaseEntity,
   CreateDateColumn,
   PrimaryGeneratedColumn,
-  Column,
   OneToMany
 } from "typeorm";
 
@@ -11,7 +10,7 @@ import Message from "./Message";
 import User from "./User";
 
 @Entity()
-class Place extends BaseEntity {
+class Chat extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -28,4 +27,4 @@ class Place extends BaseEntity {
   updatedAt: string;
 }
 
-export default Place;
+export default Chat;
