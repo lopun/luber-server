@@ -5,6 +5,7 @@ import {
 import Verification from "../../../entities/Verification";
 import { Resolvers } from "../../../types/resolvers";
 import User from "../../../entities/User";
+import createJWT from "../../../utils/createJWT";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -43,10 +44,11 @@ const resolvers: Resolvers = {
         if (user) {
           user.verifiedPhoneNumber = true;
           user.save();
+          const token = createJWT(user.id);
           return {
             ok: true,
             error: null,
-            token: "Coming Soon"
+            token: token
           };
         } else {
           // Phone Number Verified but No user assigned => User create form을 보여주자

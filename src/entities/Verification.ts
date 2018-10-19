@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
   BeforeInsert
 } from "typeorm";
-import { verificationTarget } from "src/types/types";
+import { verificationTarget } from "../types/types";
 
 const PHONE = "PHONE";
 const EMAIL = "EMAIL";
