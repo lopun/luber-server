@@ -3,8 +3,8 @@ import {
   StartPhoneVerificationMutationArgs,
   StartPhoneVerificationResponse
 } from "../../../types/graph";
-import Verification from "../../../entities/Verification";
-import { sendVerificationSMS } from "../../../utils/sendSMS";
+import Verification from "entities/Verification";
+import { sendVerificationSMS } from "utils/sendSMS";
 
 const resolvers: Resolvers = {
   Mutation: {
