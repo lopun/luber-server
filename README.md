@@ -54,9 +54,9 @@ yarn dev
 ### Private Resolvers :
 
 - [x] Get my Profile with JWT
-- [ ] Request Email Verification
-- [ ] Verify Email
-- [ ] Update my Profile
+- [x] Request Email Verification
+- [x] Verify Email
+- [x] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report location / orientation
 - [ ] Add Place
