@@ -47,14 +47,15 @@ yarn dev
 ### Authentication
 
 - [x] Generate JWT
-- [ ] Verify JWT
+- [x] Verify JWT
 
 ---
 
 ### Private Resolvers :
 
+- [x] Get my Profile with JWT
+- [ ] Request Email Verification
 - [ ] Verify Email
-- [ ] Get my Profile
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report location / orientation
