@@ -4,5 +4,5 @@ type CompleteEmailVerificationResponse {
 }
 
 type Mutation {
-  CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse
+  CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
 }

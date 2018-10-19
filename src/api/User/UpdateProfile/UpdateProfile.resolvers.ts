@@ -2,6 +2,7 @@ import { Resolvers } from "types/resolvers";
 import privateResolver from "utils/privateResolver";
 import { UpdateProfileMutationArgs, UpdateProfileResponse } from "types/graph";
 import User from "entities/User";
+import cleanNullArgs from "utils/cleanNullArgs";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -12,13 +13,7 @@ const resolvers: Resolvers = {
         { req }
       ): Promise<UpdateProfileResponse> => {
         const user: User = req.user;
-        const notNull: any = {};
-        // null인 부분 없애줌.
-        Object.keys(args).forEach(key => {
-          if (args[key] !== null) {
-            notNull[key] = args[key];
-          }
-        });
+        const notNull: any = cleanNullArgs(args);
         if (notNull.password !== null) {
           // User Entity를 보면 @BeforeUpdate Decorator이 있다.
           // 이부분은 user instance를 건들여야만 실행되는데, 아래에 있는 User.update는

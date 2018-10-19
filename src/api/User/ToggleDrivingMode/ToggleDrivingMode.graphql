@@ -4,5 +4,5 @@ type ToggleDrivingModeResponse {
 }
 
 type Mutation {
-  ToggleDrivingMode: ToggleDrivingModeResponse
+  ToggleDrivingMode: ToggleDrivingModeResponse!
 }

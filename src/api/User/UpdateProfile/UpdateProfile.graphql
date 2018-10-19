@@ -11,5 +11,5 @@ type Mutation {
     password: String
     age: Int
     email: String
-  ): UpdateProfileResponse
+  ): UpdateProfileResponse!
 }
