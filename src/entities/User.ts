@@ -1,17 +1,17 @@
-import { IsEmail } from "class-validator";
 import bcrypt from "bcrypt";
+import { IsEmail } from "class-validator";
 import {
-  Entity,
   BaseEntity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
   BeforeInsert,
   BeforeUpdate,
+  Column,
+  CreateDateColumn,
+  Entity,
   ManyToOne,
-  OneToMany
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from "typeorm";
-
 import Chat from "./Chat";
 import Message from "./Message";
 import Ride from "./Ride";
@@ -60,7 +60,6 @@ class User extends BaseEntity {
   @Column({ type: "boolean", default: false })
   isTaken: boolean;
 
-  // typeorm은 float 타입을 지원하지 않는다.
   @Column({ type: "double precision", default: 0 })
   lastLng: number;
 
@@ -87,7 +86,8 @@ class User extends BaseEntity {
 
   @CreateDateColumn()
   createdAt: string;
-  @CreateDateColumn()
+
+  @UpdateDateColumn()
   updatedAt: string;
 
   get fullName(): string {
