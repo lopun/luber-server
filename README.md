@@ -68,8 +68,8 @@ yarn dev
 - [x] Request a Ride
 - [x] Get Nearby Rides
 - [x] Subscribe to Nearby Ride Requests
-- [ ] Get Ride
-- [ ] Update Ride Status
+- [x] Get Ride
+- [x] Update Ride Status
 - [ ] Subscribe to Ride Status
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
