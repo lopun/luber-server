@@ -1,42 +1,19 @@
 import cors from "cors";
-import { ApolloServer, PubSub } from "apollo-server-express";
-import express from "express";
+import { GraphQLServer, PubSub } from "graphql-yoga";
 import helmet from "helmet";
 import logger from "morgan";
 import schema from "./schema";
 import decodeJWT from "utils/decodeJWT";
 import { NextFunction, Response } from "express";
 
-const PLAYGROUND_ENDPOINT: string = "/playground";
-const SUBSCRIPTION_ENDPOINT: string = "/subscription";
-
 class App {
-  public server;
-  public app;
+  public app: GraphQLServer;
   public pubSub: any;
   constructor() {
     this.pubSub = new PubSub();
     this.pubSub.ee.setMaxListeners(99);
-    this.server = new ApolloServer({
-      typeDefs: schema.typeDefs,
-      resolvers: schema.resolvers,
-      introspection: true,
-      playground: true,
-      subscriptions: {
-        path: SUBSCRIPTION_ENDPOINT,
-        onConnect: async connectionParams => {
-          const token = connectionParams["JWT"];
-          if (token) {
-            const user = await decodeJWT(token);
-            if (user) {
-              return {
-                currentUser: user
-              };
-            }
-          }
-          throw new Error("No JWT. Can't Subscribe.");
-        }
-      },
+    this.app = new GraphQLServer({
+      schema,
       context: req => {
         const { connection: { context = null } = {} } = req;
         return {
@@ -49,12 +26,10 @@ class App {
     this.middlewares();
   }
   private middlewares = (): void => {
-    this.app = express();
-    this.app.use(cors());
-    this.app.use(logger("dev"));
-    this.app.use(helmet());
-    this.app.use(this.jwt);
-    this.server.applyMiddleware({ app: this.app, path: PLAYGROUND_ENDPOINT });
+    this.app.express.use(cors());
+    this.app.express.use(logger("dev"));
+    this.app.express.use(helmet());
+    this.app.express.use(this.jwt);
   };
 
   private jwt = async (

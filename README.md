@@ -65,9 +65,10 @@ yarn dev
 - [x] Get My Places
 - [x] See Nearby Drivers
 - [x] Subscribe to Nearby Drivers
-- [ ] Request a Ride
-- [ ] Get Nearby Rides
-- [ ] Subscribe to Nearby Ride Requests
+- [x] Request a Ride
+- [x] Get Nearby Rides
+- [x] Subscribe to Nearby Ride Requests
+- [ ] Update Ride Status
 - [ ] Subscribe to Ride Status
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages

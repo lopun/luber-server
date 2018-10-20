@@ -1,12 +1,12 @@
 import { Resolvers } from "types/resolvers";
 import privateResolver from "utils/privateResolver";
-import { GetNearbyRideResponse } from "types/graph";
 import User from "entities/User";
 import Ride from "entities/Ride";
 import { getRepository, Between } from "typeorm";
+import { GetNearbyRideResponse } from "types/graph";
 
 const resolvers: Resolvers = {
-  Mutation: {
+  Query: {
     GetNearbyRide: privateResolver(
       async (_, __, { req }): Promise<GetNearbyRideResponse> => {
         const user: User = req.user;
