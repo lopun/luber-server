@@ -1,15 +1,15 @@
-import { Resolvers } from "types/resolvers";
-import privateResolver from "utils/privateResolver";
-import User from "entities/User";
-
-import { GetRideResponse, GetRideQueryArgs } from "types/graph";
-import Ride from "entities/Ride";
+import Ride from "../../../entities/Ride";
+import User from "../../../entities/User";
+import { GetRideQueryArgs, GetRideResponse } from "../../../types/graph";
+import { Resolvers } from "../../../types/resolvers";
+import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
   Query: {
     GetRide: privateResolver(
       async (_, args: GetRideQueryArgs, { req }): Promise<GetRideResponse> => {
         const user: User = req.user;
+
         try {
           const ride = await Ride.findOne({
             id: args.rideId
@@ -19,7 +19,7 @@ const resolvers: Resolvers = {
               return {
                 ok: true,
                 error: null,
-                ride: ride
+                ride
               };
             } else {
               return {
@@ -38,7 +38,7 @@ const resolvers: Resolvers = {
         } catch (error) {
           return {
             ok: false,
-            error: error.Message,
+            error: error.message,
             ride: null
           };
         }

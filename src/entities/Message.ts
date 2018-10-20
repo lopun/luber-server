@@ -1,10 +1,11 @@
 import {
-  Entity,
   BaseEntity,
+  Column,
   CreateDateColumn,
-  PrimaryGeneratedColumn,
+  Entity,
   ManyToOne,
-  Column
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from "typeorm";
 
 import Chat from "./Chat";
@@ -26,8 +27,8 @@ class Message extends BaseEntity {
 
   @CreateDateColumn()
   createdAt: string;
-  @CreateDateColumn()
+
+  @UpdateDateColumn()
   updatedAt: string;
 }
-
 export default Message;

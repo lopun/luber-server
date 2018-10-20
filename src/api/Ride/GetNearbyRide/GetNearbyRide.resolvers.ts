@@ -1,9 +1,9 @@
-import { Resolvers } from "types/resolvers";
-import privateResolver from "utils/privateResolver";
-import User from "entities/User";
-import Ride from "entities/Ride";
-import { getRepository, Between } from "typeorm";
-import { GetNearbyRideResponse } from "types/graph";
+import { Between, getRepository } from "typeorm";
+import Ride from "../../../entities/Ride";
+import User from "../../../entities/User";
+import { GetNearbyRideResponse } from "../../../types/graph";
+import { Resolvers } from "../../../types/resolvers";
+import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
   Query: {
@@ -27,7 +27,7 @@ const resolvers: Resolvers = {
             } else {
               return {
                 ok: true,
-                error: "There is no request for a ride.",
+                error: null,
                 ride: null
               };
             }
@@ -41,7 +41,7 @@ const resolvers: Resolvers = {
         } else {
           return {
             ok: false,
-            error: "You are not driving",
+            error: "You are not a driver",
             ride: null
           };
         }

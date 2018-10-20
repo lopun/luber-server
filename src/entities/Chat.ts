@@ -1,24 +1,25 @@
 import {
-  Entity,
   BaseEntity,
-  CreateDateColumn,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
   Column,
-  OneToOne
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from "typeorm";
 
 import Message from "./Message";
-import User from "./User";
 import Ride from "./Ride";
+import User from "./User";
 
 @Entity()
 class Chat extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToMany(type => Message, message => message.chat)
+  @OneToMany(type => Message, message => message.chat, { nullable: true })
   messages: Message[];
 
   @Column({ nullable: true })
@@ -26,6 +27,9 @@ class Chat extends BaseEntity {
 
   @ManyToOne(type => User, user => user.chatsAsPassenger)
   passenger: User;
+
+  @Column({ nullable: true })
+  rideId: number;
 
   @OneToOne(type => Ride, ride => ride.chat)
   ride: Ride;
@@ -39,8 +43,7 @@ class Chat extends BaseEntity {
   @CreateDateColumn()
   createdAt: string;
 
-  @CreateDateColumn()
+  @UpdateDateColumn()
   updatedAt: string;
 }
-
 export default Chat;
