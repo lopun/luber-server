@@ -68,6 +68,7 @@ yarn dev
 - [x] Request a Ride
 - [x] Get Nearby Rides
 - [x] Subscribe to Nearby Ride Requests
+- [ ] Get Ride
 - [ ] Update Ride Status
 - [ ] Subscribe to Ride Status
 - [ ] Get Chat Room Messages
