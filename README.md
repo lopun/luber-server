@@ -70,7 +70,8 @@ yarn dev
 - [x] Subscribe to Nearby Ride Requests
 - [x] Get Ride
 - [x] Update Ride Status
-- [ ] Subscribe to Ride Status
+- [x] Subscribe to Ride Status
+- [x] Create a Chat Room
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
