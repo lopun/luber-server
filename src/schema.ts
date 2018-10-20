@@ -1,7 +1,6 @@
-// api 폴더에 있는 모든 정의들 handling하는 파일
-import { makeExecutableSchema } from "graphql-tools";
 import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 import path from "path";
+import { gql } from "apollo-server-express";
 
 const allTypes: any[] = fileLoader(path.join(__dirname, "./api/**/*.graphql"));
 
@@ -13,9 +12,11 @@ const allResolvers: any[] = fileLoader(
 const mergedTypes = mergeTypes(allTypes);
 const mergedResolvers = mergeResolvers(allResolvers);
 
-const schema = makeExecutableSchema({
-  typeDefs: mergedTypes,
+const schema = {
+  typeDefs: gql`
+    ${mergedTypes}
+  `,
   resolvers: mergedResolvers
-});
+};
 
 export default schema;
