@@ -2,6 +2,7 @@
 import { makeExecutableSchema } from "graphql-tools";
 import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 import path from "path";
+import { gql } from "apollo-server-express";
 
 const allTypes: any[] = fileLoader(path.join(__dirname, "./api/**/*.graphql"));
 
@@ -17,5 +18,10 @@ const schema = makeExecutableSchema({
   typeDefs: mergedTypes,
   resolvers: mergedResolvers
 });
+
+export const typeDefs = gql`
+  ${mergedTypes}
+`;
+export const resolvers = mergedResolvers;
 
 export default schema;

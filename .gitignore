@@ -1,3 +1,4 @@
 node_modules
 docker_run.sh
 src/.env
+src/schema.graphql
