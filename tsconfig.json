@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "outDir": "dist",
     "module": "commonjs",
     "target": "es5",
@@ -8,12 +8,6 @@
     "sourceMap": true,
     "allowJs": true,
     "moduleResolution": "node",
-    "paths": {
-      "api/*": ["./api/*"],
-      "entities/*": ["./entities/*"],
-      "types/*": ["./types/*"],
-      "utils/*": ["./utils/*"]
-    },
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,

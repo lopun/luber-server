@@ -1,6 +1,6 @@
 import { withFilter } from "graphql-subscriptions";
-import User from "entities/User";
-import Chat from "entities/Chat";
+import User from "../../../entities/User";
+import Chat from "../../../entities/Chat";
 
 const resolvers = {
   Subscription: {

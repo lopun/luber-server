@@ -1,5 +1,5 @@
 import { withFilter } from "graphql-subscriptions";
-import User from "entities/User";
+import User from "../../../entities/User";
 
 const resolvers = {
   Subscription: {

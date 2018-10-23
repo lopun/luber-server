@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "entities/User";
+import User from "../entities/User";
 
 const decodeJWT = async (token: string): Promise<any> => {
   try {

@@ -8,7 +8,7 @@ import {
   OneToOne,
   JoinColumn
 } from "typeorm";
-import { rideStatus } from "types/types";
+import { rideStatus } from "../types/types";
 import User from "./User";
 import Chat from "./Chat";
 
